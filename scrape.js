@@ -31,7 +31,7 @@ async function scrape() {
     out = fs.createWriteStream('./' + filename, {flags: 'w'});
   let
     result,
-    nextLink = null;
+    nextLink = initLink;
   while(({result, nextLink} = await queryUsers(client, nextLink)) && result.length == 100) {
     result.forEach(item => {
       const {objectId, objectType, userPrincipalName, displayName, mail, mailNickname} = item;
