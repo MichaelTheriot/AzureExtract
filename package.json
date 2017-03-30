@@ -1,0 +1,16 @@
+{
+  "name": "azureextract",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scrape.js",
+  "dependencies": {
+    "azure-graph": "^1.1.1",
+    "ms-rest-azure": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
