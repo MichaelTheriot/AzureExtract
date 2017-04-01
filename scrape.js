@@ -32,11 +32,8 @@ async function scrape() {
   let
     result,
     nextLink = initLink;
-  while(({result, nextLink} = await queryUsers(client, nextLink)) && result.length == 100) {
-    result.forEach(item => {
-      const {objectId, objectType, userPrincipalName, displayName, mail, mailNickname} = item;
-      out.write(objectId + '\t' + objectType + '\t' + userPrincipalName + '\t' + displayName + '\t' + mail + '\t' + mailNickname + '\n');
-    });
+  while (({result, nextLink} = await queryUsers(client, nextLink)) && nextLink) {
+    result.forEach(e => out.write(e.objectId + '\t' + e.objectType + '\t' + e.userPrincipalName + '\t' + e.displayName + '\t' + e.mail + '\t' + e.mailNickname + '\n'));
     console.log(nextLink);
   }
   out.end();
